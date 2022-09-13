@@ -17,5 +17,5 @@ use App\Http\Controllers\GerenciadorEventos;
 Route::get('/', [GerenciadorEventos::class, 'index']);
 Route::get('/events/create', [GerenciadorEventos::class, 'create']);
 Route::post('/events', [GerenciadorEventos::class, 'store']);
-
+Route::get('/events/{id}', [GerenciadorEventos::class, 'show']);
 
