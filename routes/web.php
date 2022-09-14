@@ -19,3 +19,13 @@ Route::get('/events/create', [GerenciadorEventos::class, 'create']);
 Route::post('/events', [GerenciadorEventos::class, 'store']);
 Route::get('/events/{id}', [GerenciadorEventos::class, 'show']);
 
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
