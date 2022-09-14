@@ -20,3 +20,4 @@ Route::post('/events', [GerenciadorEventos::class, 'store']);
 Route::get('/events/{id}', [GerenciadorEventos::class, 'show']);
 
 Route::get('/dashboard', [GerenciadorEventos::class, 'dashboard'])->middleware('auth');
+Route::delete('/events/{id}', [GerenciadorEventos::class, 'destroy']);
