@@ -159,6 +159,13 @@
 .dashboard-events-container form {
   display: inline-block;
 }
+
+/* Edit Event */
+
+.img-preview {
+  width: 100px;
+  margin-top: 20px;
+}
   /* footer */
   footer {
     text-align: center;

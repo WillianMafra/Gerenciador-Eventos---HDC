@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use App\Http\Controllers\GerenciadorEventos;
+use Laravel\Jetstream\Rules\Role;
 
 Route::get('/', [GerenciadorEventos::class, 'index']);
 Route::get('/events/create', [GerenciadorEventos::class, 'create'])->middleware('auth');
@@ -20,4 +21,6 @@ Route::post('/events', [GerenciadorEventos::class, 'store']);
 Route::get('/events/{id}', [GerenciadorEventos::class, 'show']);
 
 Route::get('/dashboard', [GerenciadorEventos::class, 'dashboard'])->middleware('auth');
-Route::delete('/events/{id}', [GerenciadorEventos::class, 'destroy']);
+Route::delete('/events/{id}', [GerenciadorEventos::class, 'destroy'])->middleware('auth');
+Route::get('/events/edit/{id}', [GerenciadorEventos::class, 'edit'])->middleware('auth');
+Route::put('/events/update/{id}', [GerenciadorEventos::class, 'update'])->middleware('auth');
