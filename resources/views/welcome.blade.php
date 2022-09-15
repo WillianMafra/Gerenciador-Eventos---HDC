@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Estudos')
+@section('title', 'HDC Eventos')
 
 @section('content')
 <div id="search-container" class="col-md-12">
@@ -23,7 +23,7 @@
             <div class="card-body">
                 <p class="card-date">{{ date('d/m/Y', strtotime($event->date)) }}</p>
                 <h5 class="card-title">{{$event->title}}</h5>
-                <p class="card-participants">x Participantes</p>
+                <p class="card-participants">{{ count($event->users) }} participantes</p>
                 <a href="/events/{{$event->id}}" class="btn btn-primary">Saber mais</a>
             </div>
         </div>
