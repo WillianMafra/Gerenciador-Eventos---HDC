@@ -3,14 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Models\Event;
 use App\Models\User;
 
 class GerenciadorEventos extends Controller
 {
 // Function to acess the homepage
-
     public function index(){
 
         $search = request('search');
@@ -60,13 +58,26 @@ class GerenciadorEventos extends Controller
 
         return redirect('/')->with('msg', 'Evento criado com sucesso!');
     }
-// Product by id
+// Show event page
 
     public function show($id) {
+
+        $user = auth()->user();
+        $hasUserJoined = false;
+
+        if($user){
+            $userEvents = $user->eventsAsParticipant->toArray();
+
+            foreach($userEvents as $userEvent) {
+                if($userEvent['id'] == $id) {
+                    $hasUserJoined = true;
+                }
+            }
+        }
         $event = Event::findOrFail($id);
         $eventOwner = User::where('id', $event->user_id)->first()->toArray();
 
-        return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner]);
+        return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner, 'hasUserJoined' => $hasUserJoined]);
 
     }
 // Function to acess the dashboard
@@ -76,7 +87,9 @@ class GerenciadorEventos extends Controller
 
         $events = $user->events;
 
-        return view('events.dashboard', ['events' => $events]);
+        $eventsAsParticipant = $user->eventsAsParticipant;
+
+        return view('events.dashboard', ['events' => $events, 'eventsasparticipant' => $eventsAsParticipant]);
 
     }
 // Function to delete some event
@@ -86,9 +99,17 @@ class GerenciadorEventos extends Controller
         
         return redirect('/dashboard')->with('msg', 'Evento excluído com sucesso!');
     }
+// Function to edit a event
 
     public function edit($id) {
+        
+        $user = auth()->user();
+
         $event = Event::findOrFail($id);
+
+        if($user->id != $event->user_id){
+            return redirect('/dashboard');
+        }
 
         return view('events.edit', ['event' => $event]);
     }
@@ -107,6 +128,23 @@ class GerenciadorEventos extends Controller
         Event::findOrFail($request->id)->update($data);
 
         return redirect('/dashboard')->with('msg', 'Evento atualizado com sucesso!');
+    }
+
+    public function joinEvent($id){
+
+        $user = auth()->user();
+        $user->eventsAsParticipant()->attach($id);
+
+        $event = Event::findOrFail($id);
+
+        return redirect('/dashboard')->with('msg', 'Sua presença está confirmando no evento ' . $event->title);
+    }
+
+    public function leaveEvent($id) {
+        $user = auth()->user();
+        $user->eventsAsParticipant()->detach($id);
+        $event = Event::findOrFail($id);
+        return redirect('/dashboard')->with('msg', 'Você saiu com sucesso do evento:  ' . $event->title);
     }
 }
 

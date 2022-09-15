@@ -14,4 +14,8 @@ class Event extends Model
         return $this->belongsTo('App\Models\User');
     }
     protected $guarded = [];
+// Doing many to many relation
+    public function users() {
+        return $this->belongsToMany('App\Models\User');
+    }
 }
