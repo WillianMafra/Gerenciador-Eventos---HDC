@@ -1,8 +1,9 @@
 
 ## 📚 Gerenciador de Eventos 🐘
-###  Estou realizando este projeto com o intuito de praticar meus conhecimentos em PHP, MySQL, HTML, CSS, Laravel e Bootstrap
+###  Realizei este projeto com o intuito de praticar meus conhecimentos em PHP, MySQL, HTML, CSS, Laravel e Bootstrap!
+### https://hdc-eventos.herokuapp.com/
 
-## 🔧 Tecnologias que estou utilizando.
+## 🔧 Tecnologias que utilizei.
 ###### [![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=square&logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/download) -> Editor de código
 ###### ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white) -> Bando de Dados MySQL
 ###### [![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)](https://desktop.github.com/) -> Framework PHP
