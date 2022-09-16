@@ -2,6 +2,13 @@
 ## 📚 Gerenciador de Eventos 🐘
 ###  Realizei este projeto com o intuito de praticar meus conhecimentos em PHP, MySQL, HTML, CSS, Laravel e Bootstrap!
 ### https://hdc-eventos.herokuapp.com/
+### Para rodar este projeto localmente você deve:
+1. Clonar este repositório
+2. Instalar o Composer pelo site https://getcomposer.org/download/;
+3. Instalar o XAMPP pelo site https://www.apachefriends.org/pt_br/index.html, após, executar o XAMPP e ligar o MySQL;
+4. Executar o comando `composer update ` no terminal do repositório;
+5. Executar o comando `npm install ` e após isso `npm run dev`;
+6. Executar o comando `php artisan serve` e após, acessar o link gerado.
 
 ## 🔧 Tecnologias que utilizei.
 ###### [![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=square&logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/download) -> Editor de código
