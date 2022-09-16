@@ -7,7 +7,7 @@
 <h1>Para criar uma view, é necessário utilizar o nome que irá após a / seguido de blade.php</h1>
 <h1>Aqui é a página de contato</h1>
 @if(10>5)
-    <h3>10 é maior que 5</h3>
+    <h3>10 é maior que </h3>
 @endif
 <p>{{$nome}}</p>
 @if($nome == "Joaquim")
