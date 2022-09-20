@@ -1,7 +1,9 @@
 
 ## 📚 Gerenciador de Eventos 🐘
 ###  Realizei este projeto com o intuito de praticar meus conhecimentos em PHP, MySQL, HTML, CSS, Laravel e Bootstrap!
-### https://hdc-eventos.herokuapp.com/
+
+<img  src="https://i.imgur.com/xeR83TD.png" alt=""/> 
+
 ### Para rodar este projeto localmente você deve:
 1. Clonar este repositório
 2. Instalar o Composer pelo site https://getcomposer.org/download/;
