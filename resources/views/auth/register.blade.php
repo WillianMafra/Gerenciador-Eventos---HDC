@@ -1,3 +1,4 @@
+@section('title', 'HDC Eventos')
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">

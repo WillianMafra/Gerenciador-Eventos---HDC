@@ -12,6 +12,7 @@
                 <p class="event-city"><ion-icon name = "location-outline"></ion-icon>{{ $event->city }}</p>
                 <p class="event-participants"><ion-icon name = "people-outline"></ion-icon>{{ count($event->users) }} participantes</p>
                 <p class="event-owner"><ion-icon name = "star-outline"></ion-icon>{{ $eventOwner['name'] }}</p>
+                <p class="event-date"><ion-icon name="calendar-outline"></ion-icon>{{ $event->date->format('d/m/Y')}}</p>
                     @if(!$hasUserJoined)
                         <form action="/events/join/{{ $event->id }}" method="POST">
                             @csrf
